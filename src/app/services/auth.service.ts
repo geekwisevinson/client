@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
   public user = new BehaviorSubject<User>(null);
+  public users = new BehaviorSubject<User[]>([]);
   constructor(private router: Router) { }
 
   public updateUser(user: User) {
@@ -19,5 +20,9 @@ export class AuthService {
     } else {
       this.router.navigate(['home', 'logged-out'])
     }
+  }
+
+  public updateUsers(users: User[]) {
+    this.users.next(users);
   }
 }
