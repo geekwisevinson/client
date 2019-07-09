@@ -11,9 +11,13 @@ export class IsLoggedInGuard implements CanActivate, CanActivateChild  {
 
   }
   public canActivate(): boolean {
-    return !!(this.authService.user.value);
+    return this.checkIsLoggedIn();
   }
   public canActivateChild(): boolean {
+    return this.checkIsLoggedIn();
+  }
+
+  private checkIsLoggedIn() {
     return !!(this.authService.user.value);
   }
 }

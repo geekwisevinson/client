@@ -1,0 +1,11 @@
+<p>add-user works!</p>
+<ng-container *ngIf="userForm">
+  <form [formGroup]="userForm"
+  >
+    <input type="text" formControlName="username" placeholder="username">
+    <input type="text" formControlName="avatar" placeholder="avatar">
+    <input type="text" formControlName="token" placeholder="token">
+  </form>
+  <button [disabled]="userForm.invalid" (click)="onSubmit()">Submit</button>
+</ng-container>
+

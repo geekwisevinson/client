@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../../../services/api.service";
+import {User} from "../../../interfaces/user";
 
 @Component({
   selector: 'geekwise-select',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectComponent implements OnInit {
 
-  constructor() { }
+  public users = [];
+  constructor(public apiService: ApiService) { }
 
   ngOnInit() {
+    const url = 'https://connect2me.herokuapp.com/api-users';
+    this.apiService.get(url).subscribe( (res: {data: User[]}) => {
+      if (res && res.data) {
+        this.users = res.data;
+      }
+    });
   }
 
 }
