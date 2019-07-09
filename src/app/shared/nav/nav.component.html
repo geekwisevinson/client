@@ -1,1 +1,7 @@
-<p>nav works!</p>
+<a routerLink="/home/logged-out" routerLinkActive="link-active">Logged out</a>
+<a routerLink="/home/logged-in" routerLinkActive="link-active">Home</a>
+
+<a routerLink="/users"
+   routerLinkActive="link-active"
+   [routerLinkActiveOptions]="{ exact: true}">Users</a>
+<a routerLink="/users/search" routerLinkActive="link-active">Search</a>
